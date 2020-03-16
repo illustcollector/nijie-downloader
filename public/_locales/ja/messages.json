@@ -1,0 +1,21 @@
+{
+  "errWaitOtherDownload": {
+    "message": "別のダウンロードが終わるまで待ってください。"
+  },
+  "askContinue": {
+    "message": "2+回目のクリックです。\n続けますか？"
+  },
+  "done": {
+    "message": "完了"
+  },
+  "saved": {
+    "message": "保存しました。"
+  },
+  "errSaveFailed": {
+    "message": "エラー！保存失敗！"
+  },
+  "download": {
+    "message": "ダウンロード",
+    "description": "Button label"
+  }
+}

@@ -1,0 +1,32 @@
+body {
+  font-size: 1rem;
+  max-width: 800px;
+  margin: 20px auto 0;
+}
+
+form {
+  display: table;
+}
+
+div.row {
+  display: table-row;
+}
+
+label,
+input {
+  display: table-cell;
+  margin-bottom: 10px;
+}
+
+label {
+  padding-right: 10px;
+}
+
+input {
+  padding: 3px;
+  font-size: 1.2em;
+}
+
+code {
+  font-size: 1.2em;
+}

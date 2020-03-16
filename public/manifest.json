@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "Nijie Downloader",
+  "version": "1.0.1",
+  "default_locale": "en",
+  "description": "Image downloader for nijie.info",
+  "permissions": ["downloads", "storage"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": ["*://nijie.info/view.php?id=*"],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ],
+  "icons": {
+    "128": "icon.png"
+  }
+}

@@ -1,2 +1,6 @@
-# nijie-downloader
-Browsers extension for download image in nijie.info.
+![icon](/public/icon.png)
+
+# Nijie Downloader
+Browsers extension for download images in nijie.info.
+
+![screenshot](/screenshot.png)

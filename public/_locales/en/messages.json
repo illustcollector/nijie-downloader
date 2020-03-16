@@ -1,0 +1,21 @@
+{
+  "errWaitOtherDownload": {
+    "message": "Wait for other downloading."
+  },
+  "askContinue": {
+    "message": "second click.\ncontinue?"
+  },
+  "done": {
+    "message": "done"
+  },
+  "saved": {
+    "message": "saved."
+  },
+  "errSaveFailed": {
+    "message": "Error! Save faild!"
+  },
+  "download": {
+    "message": "download",
+    "description": "Button label"
+  }
+}
