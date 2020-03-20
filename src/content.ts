@@ -74,12 +74,15 @@ const getIllustId = (): string => {
  * バックグラウンドスクリプトからのメッセージを処理する
  */
 const handleMessage = (request: any) => {
-  if (request.downloading === 0) {
-    messageElem.textContent = browser.i18n.getMessage('done');
-    browser.runtime.onMessage.removeListener(handleMessage);
-  } else {
-    messageElem.textContent =
-      sources.length - request.downloading + ' / ' + sources.length;
+  if (request.type === 'downloaded') {
+    downloaded++;
+    if (downloaded === sources.length) {
+      messageElem.textContent = browser.i18n.getMessage('done');
+      browser.runtime.onMessage.removeListener(handleMessage);
+      downloaded = 0;
+    } else {
+      messageElem.textContent = downloaded + ' / ' + sources.length;
+    }
   }
 };
 
@@ -113,6 +116,7 @@ const save = async (): Promise<void> => {
 const sources = getImageSources();
 const messageElem = document.createElement('p');
 let isClicked = false;
+let downloaded = 0;
 
 if (sources.length) {
   const boxElem = document.createElement('div');

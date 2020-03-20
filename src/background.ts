@@ -151,7 +151,7 @@ browser.downloads.onChanged.addListener(async (delta) => {
       for (let tab of tabs) {
         if (tab.id == undefined) continue;
         browser.tabs.sendMessage(tab.id, {
-          downloading: downloadingIds.length,
+          type: 'downloaded',
         });
       }
     }
