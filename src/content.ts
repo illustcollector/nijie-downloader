@@ -1,4 +1,4 @@
-import { browser } from 'webextension-polyfill-ts';
+import browser from 'webextension-polyfill';
 
 /**
  * ダウンロードする画像URLのリストを取得する
@@ -34,9 +34,9 @@ const getImageSources = (): string[] => {
  * ユーザーIDを取得する
  */
 const getUserId = (): string => {
-  const userPageUrl = (document.querySelector(
-    '#pro > p.user_icon > a',
-  ) as HTMLAnchorElement).href;
+  const userPageUrl = (
+    document.querySelector('#pro > p.user_icon > a') as HTMLAnchorElement
+  ).href;
   const userId = userPageUrl.match(/id=(\d+)$/)?.[1];
   // console.log('user id', userId);
   return userId || '';
@@ -55,8 +55,9 @@ const getTitle = (): string => {
  * ユーザー名を取得する
  */
 const getUserName = (): string => {
-  const userName = document.querySelector('#pro > p.user_icon > a')
-    ?.textContent;
+  const userName = document.querySelector(
+    '#pro > p.user_icon > a',
+  )?.textContent;
   // console.log('user name', userName);
   return userName || '';
 };

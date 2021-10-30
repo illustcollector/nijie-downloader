@@ -5,6 +5,7 @@
     "target": "es2019", // TSはECMAScript 2019に変換
     "module": "es2015", // TSのモジュールはES Modulesとして出力
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "esModuleInterop": true
   }
 }

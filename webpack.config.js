@@ -1,10 +1,9 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 
-module.exports = (env) => {
+module.exports = (env, argv) => {
   return {
-    mode: env.production ? 'production' : 'development',
-    devtool: env.development && 'inline-source-map',
+    devtool: argv.mode === 'development' ? 'inline-source-map' : '',
     entry: {
       content: './src/content.ts',
       background: './src/background.ts',
@@ -27,6 +26,10 @@ module.exports = (env) => {
     resolve: {
       extensions: ['.ts'],
     },
-    plugins: [new CopyPlugin([{ from: 'public' }])],
+    plugins: [
+      new CopyPlugin({
+        patterns: [{ from: 'public' }],
+      }),
+    ],
   };
 };

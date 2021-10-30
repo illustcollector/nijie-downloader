@@ -1,4 +1,4 @@
-import { browser } from 'webextension-polyfill-ts';
+import browser from 'webextension-polyfill';
 
 const singleDefault = 'nijie/${userName}(${userId})/${title}(${id})';
 const multiDefault = 'nijie/${userName}(${userId})/${title}(${id})/${page}';
@@ -120,7 +120,9 @@ const download = async (info: Info): Promise<any> => {
       // console.log('start download', downloadItems[0].url);
     } catch (e) {
       // console.log(e.message);
-      return { error: e.message };
+      if (e instanceof Error) {
+        return { error: e.message };
+      }
     }
   }
 };
