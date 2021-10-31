@@ -10,15 +10,13 @@
     <h1>Options Page</h1>
     <p>Nijie downloader</p>
     <form>
-      <div class="row">
+      <div class="path_setting">
         <label for="single_image">Single image</label>
-        <input id="single_image" type="text" size="60" />
-      </div>
-      <div class="row">
+        <input id="single_image" type="text" />
         <label for="multi_image">Multi image</label>
-        <input id="multi_image" type="text" size="60" />
+        <input id="multi_image" type="text" />
       </div>
-      <div class="row">
+      <div class="submit">
         <input type="submit" value="Save" />
       </div>
     </form>
@@ -55,6 +53,30 @@
         <tr>
           <td>${page}</td>
           <td>Page Number</td>
+        </tr>
+        <tr>
+          <td>${YYYY}</td>
+          <td>Post year</td>
+        </tr>
+        <tr>
+          <td>${MM}</td>
+          <td>Post month</td>
+        </tr>
+        <tr>
+          <td>${DD}</td>
+          <td>Post date</td>
+        </tr>
+        <tr>
+          <td>${hh}</td>
+          <td>Post hours</td>
+        </tr>
+        <tr>
+          <td>${mm}</td>
+          <td>Post minutes</td>
+        </tr>
+        <tr>
+          <td>${ss}</td>
+          <td>Post seconds</td>
         </tr>
       </tbody>
     </table>

@@ -5,3 +5,7 @@
 Browsers extension for download images in nijie.info.
 
 ![screenshot](/screenshot.png)
+
+## Build
+
+`npm run build`

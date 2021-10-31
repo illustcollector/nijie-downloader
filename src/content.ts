@@ -72,6 +72,17 @@ const getIllustId = (): string => {
 };
 
 /**
+ * 投稿時間を取得する
+ */
+const getPostDate = (): string => {
+  const postDate = document
+    .querySelector('#view-honbun > p > span')
+    ?.textContent?.replace('投稿時間：', '');
+  console.log('post date:', postDate);
+  return postDate || '';
+};
+
+/**
  * バックグラウンドスクリプトからのメッセージを処理する
  */
 const handleMessage = (request: any) => {
@@ -106,6 +117,7 @@ const save = async (): Promise<void> => {
     illustId: getIllustId(),
     userId: getUserId(),
     userName: getUserName(),
+    postDate: getPostDate(),
   });
   if (response && response.error) {
     alert('Error!\n' + response.error);

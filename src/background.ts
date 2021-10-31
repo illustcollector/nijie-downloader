@@ -9,6 +9,7 @@ interface Info {
   illustId: string;
   userId: string;
   userName: string;
+  postDate: string;
 }
 
 // ダウンロード中のアイテムのID
@@ -32,11 +33,34 @@ const calcWidth = (length: number): number => {
  * @param pathElems 保存先パスの設定
  */
 const getSavePath = (pathElems: string[], info: Info): string[] => {
+  const date = new Date(info.postDate);
+
   return pathElems.map((pathElem) => {
     pathElem = pathElem.replace('${id}', esc(info.illustId));
     pathElem = pathElem.replace('${title}', esc(info.title));
     pathElem = pathElem.replace('${userId}', esc(info.userId));
     pathElem = pathElem.replace('${userName}', esc(info.userName));
+    pathElem = pathElem.replace('${YYYY}', esc(date.getFullYear().toString()));
+    pathElem = pathElem.replace(
+      '${MM}',
+      esc((date.getMonth() + 1).toString().padStart(2, '0')),
+    );
+    pathElem = pathElem.replace(
+      '${DD}',
+      esc(date.getDate().toString().padStart(2, '0')),
+    );
+    pathElem = pathElem.replace(
+      '${hh}',
+      esc(date.getHours().toString().padStart(2, '0')),
+    );
+    pathElem = pathElem.replace(
+      '${mm}',
+      esc(date.getMinutes().toString().padStart(2, '0')),
+    );
+    pathElem = pathElem.replace(
+      '${ss}',
+      esc(date.getSeconds().toString().padStart(2, '0')),
+    );
     return pathElem;
   });
 };

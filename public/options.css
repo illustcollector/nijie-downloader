@@ -2,31 +2,24 @@ body {
   font-size: 1rem;
   max-width: 800px;
   margin: 20px auto 0;
+  padding: 0 20px;
 }
 
-form {
-  display: table;
-}
-
-div.row {
-  display: table-row;
-}
-
-label,
-input {
-  display: table-cell;
-  margin-bottom: 10px;
-}
-
-label {
-  padding-right: 10px;
+.path_setting {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 10px;
+  align-items: center;
 }
 
 input {
   padding: 3px;
-  font-size: 1.2em;
+  font-size: 1rem;
+  min-width: 100px;
 }
 
-code {
-  font-size: 1.2em;
+.submit {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
 }
