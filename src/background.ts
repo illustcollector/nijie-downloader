@@ -13,6 +13,7 @@ interface Info {
 
 // ダウンロード中のアイテムのID
 const downloadingIds: number[] = [];
+let tabId: number | undefined;
 
 /**
  * 保存ファイル名用連番数字幅を計算する
@@ -115,7 +116,7 @@ const download = async (info: Info): Promise<any> => {
         conflictAction: 'uniquify',
       });
       downloadingIds.push(downloadId);
-      await browser.downloads.search({ id: downloadId });
+      // await browser.downloads.search({ id: downloadId });
       // const downloadItems = await browser.downloads.search({ id: downloadId });
       // console.log('start download', downloadItems[0].url);
     } catch (e) {
@@ -128,13 +129,14 @@ const download = async (info: Info): Promise<any> => {
 };
 
 // main
-browser.runtime.onMessage.addListener((message) => {
+browser.runtime.onMessage.addListener((message, sender) => {
   if (message.type === 'download') {
     if (downloadingIds.length) {
       return Promise.resolve({
         error: browser.i18n.getMessage('errWaitOtherDownload'),
       });
     }
+    tabId = sender.tab?.id;
     return download(message);
   }
 });
@@ -142,17 +144,12 @@ browser.runtime.onMessage.addListener((message) => {
 browser.downloads.onChanged.addListener(async (delta) => {
   if (downloadingIds.includes(delta.id) && delta.state) {
     if (delta.state.current === 'complete') {
-      await browser.downloads.search({ id: delta.id });
+      // await browser.downloads.search({ id: delta.id });
       // const downloadItems = await browser.downloads.search({ id: delta.id });
       // console.log('finish download', downloadItems[0].url);
       downloadingIds.splice(downloadingIds.indexOf(delta.id), 1);
-      const tabs = await browser.tabs.query({
-        active: true,
-        currentWindow: true,
-      });
-      for (let tab of tabs) {
-        if (tab.id == undefined) continue;
-        browser.tabs.sendMessage(tab.id, {
+      if (tabId !== undefined) {
+        browser.tabs.sendMessage(tabId, {
           type: 'downloaded',
         });
       }
