@@ -129,8 +129,9 @@ const download = async (info: Info): Promise<any> => {
   for (let i = 0; i < info.urls.length; i++) {
     const url = info.urls[i];
     const index = i + 1;
+    const saveFileName = getSaveFileName(fileNameSetting, url, width, index);
     const saveFilePath =
-      savePath + '/' + getSaveFileName(fileNameSetting, url, width, index);
+      savePath !== '' ? savePath + '/' + saveFileName : saveFileName;
     // console.log(url);
     // console.log(saveFilePath);
     try {
@@ -144,8 +145,8 @@ const download = async (info: Info): Promise<any> => {
       // const downloadItems = await browser.downloads.search({ id: downloadId });
       // console.log('start download', downloadItems[0].url);
     } catch (e) {
-      // console.log(e.message);
       if (e instanceof Error) {
+        // console.log(e.message);
         return { error: e.message };
       }
     }
