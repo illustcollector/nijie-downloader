@@ -78,7 +78,7 @@ const getPostDate = (): string => {
   const postDate = document
     .querySelector('#view-honbun > p > span')
     ?.textContent?.replace('投稿時間：', '');
-  console.log('post date:', postDate);
+  // console.log('post date:', postDate);
   return postDate || '';
 };
 
@@ -126,20 +126,30 @@ const save = async (): Promise<void> => {
   messageElem.textContent = '0 / ' + sources.length;
 };
 
-const sources = getImageSources();
+const init = () => {
+  sources = getImageSources();
+
+  if (sources.length) {
+    const boxElem = document.createElement('div');
+    boxElem.className = 'nijie_downloader-wrapper';
+    const downloadBtn = document.createElement('button');
+    downloadBtn.className = 'nijie_downloader-download_button';
+    downloadBtn.textContent = browser.i18n.getMessage('download');
+    downloadBtn.onclick = save;
+    boxElem.appendChild(downloadBtn);
+    messageElem.className = 'nijie_downloader-message';
+    boxElem.appendChild(messageElem);
+    document.getElementById('view-center-button')?.appendChild(boxElem);
+  }
+};
+
+let sources: string[];
 const messageElem = document.createElement('p');
 let isClicked = false;
 let downloaded = 0;
 
-if (sources.length) {
-  const boxElem = document.createElement('div');
-  boxElem.className = 'nijie_downloader-wrapper';
-  const downloadBtn = document.createElement('button');
-  downloadBtn.className = 'nijie_downloader-download_button';
-  downloadBtn.textContent = browser.i18n.getMessage('download');
-  downloadBtn.onclick = save;
-  boxElem.appendChild(downloadBtn);
-  messageElem.className = 'nijie_downloader-message';
-  boxElem.appendChild(messageElem);
-  document.getElementById('view-center-button')?.appendChild(boxElem);
+if (document.readyState == 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
 }

@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Nijie Downloader",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "default_locale": "en",
   "description": "Image downloader for nijie.info",
   "permissions": ["downloads", "storage"],

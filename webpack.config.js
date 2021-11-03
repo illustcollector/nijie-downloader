@@ -2,8 +2,7 @@ const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = (env, argv) => {
-  return {
-    devtool: argv.mode === 'development' ? 'inline-source-map' : '',
+  const config = {
     entry: {
       content: './src/content.ts',
       background: './src/background.ts',
@@ -32,4 +31,8 @@ module.exports = (env, argv) => {
       }),
     ],
   };
+  if (argv.mode === 'development') {
+    config['devtool'] = 'inline-source-map';
+  }
+  return config;
 };

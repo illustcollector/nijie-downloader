@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,79 +11,83 @@
     <p>Nijie downloader</p>
     <form>
       <div class="path_setting">
-        <label for="single_image">Single image</label>
+        <label for="single_image" i18n="singleImageFilename"
+          >Single image filename</label
+        >
         <input id="single_image" type="text" />
-        <label for="multi_image">Multi image</label>
+        <label for="multi_image" i18n="multiImageFilename"
+          >Multi image filename</label
+        >
         <input id="multi_image" type="text" />
       </div>
       <div class="submit">
-        <input type="submit" value="Save" />
+        <input type="submit" value="Save" i18n="save" />
       </div>
     </form>
     <dl>
-      <dt>Default (single)</dt>
+      <dt i18n="defaultSingle">Default (single)</dt>
       <dd><code>nijie/${userName}(${userId})/${title}(${id})</code></dd>
-      <dt>Default (multi)</dt>
+      <dt i18n="defaultMulti">Default (multi)</dt>
       <dd><code>nijie/${userName}(${userId})/${title}(${id})/${page}</code></dd>
     </dl>
     <table>
       <thead>
         <tr>
-          <th>Variables</th>
-          <th>Description</th>
+          <th i18n="variables">Variables</th>
+          <th i18n="description">Description</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>${id}</td>
-          <td>Illust ID</td>
+          <td i18n="illustId">Illust ID</td>
         </tr>
         <tr>
           <td>${title}</td>
-          <td>Illust Title</td>
+          <td i18n="illustTitle">Illust Title</td>
         </tr>
         <tr>
           <td>${userId}</td>
-          <td>User ID</td>
+          <td i18n="userId">User ID</td>
         </tr>
         <tr>
           <td>${userName}</td>
-          <td>User Name</td>
+          <td i18n="username">User Name</td>
         </tr>
         <tr>
           <td>${page}</td>
-          <td>Page Number</td>
+          <td i18n="pageNumber">Page Number</td>
         </tr>
         <tr>
           <td>${YYYY}</td>
-          <td>Post year</td>
+          <td i18n="postYear">Post year</td>
         </tr>
         <tr>
           <td>${MM}</td>
-          <td>Post month</td>
+          <td i18n="postMonth">Post month</td>
         </tr>
         <tr>
           <td>${DD}</td>
-          <td>Post date</td>
+          <td i18n="postDate">Post date</td>
         </tr>
         <tr>
           <td>${hh}</td>
-          <td>Post hours</td>
+          <td i18n="postHours">Post hours</td>
         </tr>
         <tr>
           <td>${mm}</td>
-          <td>Post minutes</td>
+          <td i18n="postMinutes">Post minutes</td>
         </tr>
         <tr>
           <td>${ss}</td>
-          <td>Post seconds</td>
+          <td i18n="postSeconds">Post seconds</td>
         </tr>
       </tbody>
     </table>
     <ul>
-      <li>'\/:*?"&lt;&gt;|~' is replaced '_'.</li>
-      <li>${page} must be located last path element.</li>
+      <li i18n="note1">'\/:*?"&lt;&gt;|~' is replaced '_'.</li>
+      <li i18n="note2">${page} must be located last path element.</li>
     </ul>
-    <script src="options.js"></script>
+    <script src="options.js" async></script>
   </body>
 </html>

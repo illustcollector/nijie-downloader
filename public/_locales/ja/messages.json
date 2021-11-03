@@ -3,7 +3,7 @@
     "message": "別のダウンロードが終わるまで待ってください。"
   },
   "askContinue": {
-    "message": "2+回目のクリックです。\n続けますか？"
+    "message": "すでにクリックされてます。\n続けますか？"
   },
   "done": {
     "message": "完了"
@@ -17,5 +17,65 @@
   "download": {
     "message": "ダウンロード",
     "description": "Button label"
+  },
+  "settings_singleImageFilename": {
+    "message": "単一画像ファイル名"
+  },
+  "settings_multiImageFilename": {
+    "message": "複数画像ファイル名"
+  },
+  "settings_save": {
+    "message": "保存する"
+  },
+  "settings_defaultSingle": {
+    "message": "デフォルト（単一）"
+  },
+  "settings_defaultMulti": {
+    "message": "デフォルト（複数）"
+  },
+  "settings_variables": {
+    "message": "変数"
+  },
+  "settings_description": {
+    "message": "説明"
+  },
+  "settings_illustId": {
+    "message": "イラストID"
+  },
+  "settings_illustTitle": {
+    "message": "イラストタイトル"
+  },
+  "settings_userId": {
+    "message": "ユーザーID"
+  },
+  "settings_username": {
+    "message": "ユーザー名"
+  },
+  "settings_pageNumber": {
+    "message": "ページ番号"
+  },
+  "settings_postYear": {
+    "message": "投稿年"
+  },
+  "settings_postMonth": {
+    "message": "投稿月"
+  },
+  "settings_postDate": {
+    "message": "投稿日"
+  },
+  "settings_postHours": {
+    "message": "投稿時"
+  },
+  "settings_postMinutes": {
+    "message": "投稿分"
+  },
+  "settings_postSeconds": {
+    "message": "投稿秒"
+  },
+  "settings_note1": {
+    "message": "'\\/:*?\"&lt;&gt;|~'は'_'に置換されます。"
+  },
+  "settings_note2": {
+    "message": "$${page}は最後のパス要素に置く必要があります。"
   }
 }

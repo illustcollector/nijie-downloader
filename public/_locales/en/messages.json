@@ -3,7 +3,7 @@
     "message": "Wait for other downloading."
   },
   "askContinue": {
-    "message": "second click.\ncontinue?"
+    "message": "already clicked.\ncontinue?"
   },
   "done": {
     "message": "done"
@@ -17,5 +17,65 @@
   "download": {
     "message": "download",
     "description": "Button label"
+  },
+  "settings_singleImageFilename": {
+    "message": "Single image filename"
+  },
+  "settings_multiImageFilename": {
+    "message": "Multi image filename"
+  },
+  "settings_save": {
+    "message": "Save"
+  },
+  "settings_defaultSingle": {
+    "message": "Default (single)"
+  },
+  "settings_defaultMulti": {
+    "message": "Default (multi)"
+  },
+  "settings_variables": {
+    "message": "Variables"
+  },
+  "settings_description": {
+    "message": "Description"
+  },
+  "settings_illustId": {
+    "message": "Illust ID"
+  },
+  "settings_illustTitle": {
+    "message": "Illust Title"
+  },
+  "settings_userId": {
+    "message": "User ID"
+  },
+  "settings_username": {
+    "message": "User Name"
+  },
+  "settings_pageNumber": {
+    "message": "Page Number"
+  },
+  "settings_postYear": {
+    "message": "Post year"
+  },
+  "settings_postMonth": {
+    "message": "Post month"
+  },
+  "settings_postDate": {
+    "message": "Post date"
+  },
+  "settings_postHours": {
+    "message": "Post hours"
+  },
+  "settings_postMinutes": {
+    "message": "Post minutes"
+  },
+  "settings_postSeconds": {
+    "message": "Post seconds"
+  },
+  "settings_note1": {
+    "message": "'\\/:*?\"&lt;&gt;|~' is replaced '_'."
+  },
+  "settings_note2": {
+    "message": "$${page} must be located last path element."
   }
 }

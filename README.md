@@ -8,4 +8,4 @@ Browsers extension for download images in nijie.info.
 
 ## Build
 
-`npm run build`
+`npm i && npm run build`

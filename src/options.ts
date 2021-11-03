@@ -28,5 +28,30 @@ async function restoreOptions() {
   (document.querySelector('#multi_image') as HTMLInputElement).value = multi;
 }
 
-document.addEventListener('DOMContentLoaded', restoreOptions);
-document.querySelector('form')?.addEventListener('submit', saveOptions);
+function translate() {
+  const elems = document.querySelectorAll('[i18n]');
+
+  for (const elem of elems) {
+    const text = browser.i18n.getMessage(
+      'settings_' + elem.getAttribute('i18n'),
+    );
+
+    if (elem instanceof HTMLInputElement && elem.type === 'submit') {
+      elem.value = text;
+    } else {
+      elem.textContent = text;
+    }
+  }
+}
+
+async function init() {
+  translate();
+  await restoreOptions();
+  document.querySelector('form')?.addEventListener('submit', saveOptions);
+}
+
+if (document.readyState == 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
